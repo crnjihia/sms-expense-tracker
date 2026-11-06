@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kipanga cha Matumizi ya SMS</string>
+    <string name="welcome_message">Karibu kwenye Kipanga cha Matumizi ya SMS</string>
+    <string name="request_permission">Omba Ruhusa ya SMS</string>
+    <string name="grant_permission">Ruhusu SMS</string>
+    <string name="permission_rationale">Programu inahitaji ruhusa ya SMS ili kusoma ujumbe wa M‑Pesa na benki.</string>
+    <string name="manual_import_title">Uingizaji wa Mikono</string>
+    <string name="paste_messages_label">Bandika ujumbe wa SMS (mtumaji|maudhui kwa kila mstari)</string>
+    <string name="paste_placeholder">+254711234567|Ksh1,000.00 alitumwa kwa John tarehe 01/08/2024 12:00 PM</string>
+    <string name="import_button">Ingiza</string>
+    <string name="import_summary">%1$d imeingizwa, %2$d haikuweza kutambuliwa</string>
+    <string name="done_button">Sawa</string>
+    <string name="manual_import_button">Uingizaji wa Mikono</string>
+</resources>

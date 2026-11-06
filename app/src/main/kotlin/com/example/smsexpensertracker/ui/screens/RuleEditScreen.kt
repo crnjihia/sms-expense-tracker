@@ -1,0 +1,70 @@
+package com.example.smsexpensertracker.ui.screens
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.smsexpensertracker.ui.viewmodel.RuleViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.smsexpensertracker.data.CategorisationRule
+
+/**
+ * Screen for creating a new rule or editing an existing one.
+ */
+@Composable
+fun RuleEditScreen(navController: NavHostController, ruleId: Long?) {
+    val viewModel: RuleViewModel = hiltViewModel()
+    val existing = ruleId?.let { viewModel.getRuleById(it) }
+
+    var categoryIdText by remember { mutableStateOf(existing?.categoryId?.toString() ?: "") }
+    var keywordText by remember { mutableStateOf(existing?.keyword ?: "") }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(title = { Text(if (existing == null) "Add Rule" else "Edit Rule") })
+        }
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(paddingValues)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            OutlinedTextField(
+                value = categoryIdText,
+                onValueChange = { categoryIdText = it },
+                label = { Text("Category ID") },
+                isError = categoryIdText.isNotBlank() && categoryIdText.toLongOrNull() == null,
+                singleLine = true
+            )
+            OutlinedTextField(
+                value = keywordText,
+                onValueChange = { keywordText = it },
+                label = { Text("Keyword") },
+                singleLine = true
+            )
+            Spacer(modifier = Modifier.height(24.dp))
+            Button(
+                onClick = {
+                    val catId = categoryIdText.toLongOrNull()
+                    if (catId != null && keywordText.isNotBlank()) {
+                        if (existing == null) {
+                            viewModel.addRule(catId, keywordText.trim())
+                        } else {
+                            val updated = existing.copy(categoryId = catId, keyword = keywordText.trim())
+                            viewModel.updateRule(updated)
+                        }
+                        navController.popBackStack()
+                    }
+                },
+                enabled = categoryIdText.toLongOrNull() != null && keywordText.isNotBlank(),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Save")
+            }
+        }
+    }
+}

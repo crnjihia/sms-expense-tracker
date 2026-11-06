@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SMS Expense Tracker</string>
+    <string name="welcome_message">Welcome to SMS Expense Tracker</string>
+    <string name="request_permission">Request SMS Permission</string>
+    <string name="grant_permission">Grant SMS Permission</string>
+    <string name="permission_rationale">The app needs SMS permission to read M‑Pesa and bank messages.</string>
+    <string name="manual_import_title">Manual SMS Import</string>
+    <string name="paste_messages_label">Paste SMS messages (sender|body per line)</string>
+    <string name="paste_placeholder">+254711234567|Ksh1,000.00 sent to John on 01/08/2024 12:00 PM</string>
+    <string name="import_button">Import</string>
+    <string name="import_summary">%1$d messages imported, %2$d unparsed</string>
+    <string name="done_button">Done</string>
+    <string name="manage_rules">Manage Rules</string>
+    <string name="manage_budgets">Manage Budgets</string>
+    <string name="check_budgets">Check Budgets</string>
+
+</resources>
