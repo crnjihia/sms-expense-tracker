@@ -1,6 +1,7 @@
 package com.example.smsexpensertracker.data
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -11,16 +12,16 @@ import java.time.OffsetDateTime
 /** DAO for transaction operations. */
 @Dao
 interface TransactionDao {
-    // Existing DAO methods above
-    // New query to sum spending per category for a given month (inclusive)
+    // New query to sum spending per category for a given month (inclusive, expenses only)
     @Query("""
         SELECT categoryId AS categoryId, SUM(amount) AS total
         FROM transactions
         WHERE categoryId IS NOT NULL
+          AND amount < 0
           AND timestamp BETWEEN :start AND :end
         GROUP BY categoryId
     """)
-    suspend fun getSpendingByCategory(start: java.time.OffsetDateTime, end: java.time.OffsetDateTime): List<com.example.smsexpensertracker.data.CategorySpending>
+    suspend fun getSpendingByCategory(start: OffsetDateTime, end: OffsetDateTime): List<CategorySpending>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(transaction: Transaction): Long
@@ -35,10 +36,10 @@ interface TransactionDao {
     suspend fun getById(id: Long): Transaction?
 
     @Query("""
-        SELECT * FROM transactions 
-        WHERE amount = :amount 
-          AND timestamp = :timestamp 
-          AND description = :description 
+        SELECT * FROM transactions
+        WHERE amount = :amount
+          AND timestamp = :timestamp
+          AND description = :description
         LIMIT 1
     """)
     suspend fun getDuplicate(
@@ -70,26 +71,22 @@ interface CategoryDao {
 /** DAO for budget operations. */
 @Dao
 interface BudgetDao {
-    @Query("DELETE FROM budgets WHERE id = :id")
-    suspend fun deleteById(id: Long)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(budget: Budget): Long
 
     @Update
     suspend fun update(budget: Budget)
 
+    @Delete
+    suspend fun delete(budget: Budget)
+
+    @Query("SELECT * FROM budgets")
+    suspend fun getAllBudgets(): List<Budget>
+
     @Query("""
         SELECT * FROM budgets WHERE month = :monthStr
     """)
     suspend fun getAllBudgetsForMonth(monthStr: String): List<Budget>
-
-
-
-
-
-
-
-
 }
 
 /** DAO for SMS source state tracking. */

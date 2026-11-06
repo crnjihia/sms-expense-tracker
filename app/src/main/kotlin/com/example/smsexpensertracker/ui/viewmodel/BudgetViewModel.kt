@@ -4,41 +4,44 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.smsexpensertracker.data.Budget
 import com.example.smsexpensertracker.data.BudgetDao
+import com.example.smsexpensertracker.data.TransactionDao
+import com.example.smsexpensertracker.data.CategorySpending
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/** ViewModel for budget CRUD operations. */
+/** ViewModel for budget CRUD operations and spending overview. */
 @HiltViewModel
 class BudgetViewModel @Inject constructor(
-    private val budgetDao: BudgetDao
+    private val budgetDao: BudgetDao,
+    private val transactionDao: TransactionDao
 ) : ViewModel() {
 
     private val _budgets = MutableStateFlow<List<Budget>>(emptyList())
     val budgets: StateFlow<List<Budget>> = _budgets.asStateFlow()
 
+    private val _spendingMap = MutableStateFlow<Map<Long, Long>>(emptyMap())
+    val spendingMap: StateFlow<Map<Long, Long>> = _spendingMap.asStateFlow()
+
     init {
         viewModelScope.launch {
-            // Convert DAO Flow to StateFlow – DAO currently returns Flow only for getAllBudgetsForMonth,
-            // so we expose a simple LiveData-like list via repeated queries. For simplicity we load all budgets.
-            // In a real app, you might have a dedicated getAllBudgets() Flow.
-            // Here we just pull all budgets for the current month (placeholder month "2024-01").
-            // This keeps the demo functional without expanding DAO further.
-            // You can adjust later to load all months.
-            try {
-                val now = java.time.OffsetDateTime.now(java.time.ZoneOffset.UTC)
-                val monthStr = "${now.year}-${"%02d".format(now.monthValue)}"
-                val list = budgetDao.getAllBudgetsForMonth(monthStr)
-                _budgets.value = list
-            } catch (e: Exception) {
-                // ignore errors for now
-            }
+            loadBudgetsAndSpending()
         }
+    }
+
+    private suspend fun loadBudgetsAndSpending() {
+        // Load all budgets (no month filter)
+        _budgets.value = budgetDao.getAllBudgets()
+        // Load spending for the current month (expenses only)
+        val now = java.time.OffsetDateTime.now(java.time.ZoneOffset.UTC)
+        val monthStart = now.withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0).withNano(0)
+        val monthEnd = monthStart.plusMonths(1).minusNanos(1)
+        val spendingList = transactionDao.getSpendingByCategory(monthStart, monthEnd)
+        val map = spendingList.associate { it.categoryId to -it.total }
+        _spendingMap.value = map
     }
 
     fun addBudget(categoryId: Long, month: String, limitKsh: Long) {
@@ -55,9 +58,9 @@ class BudgetViewModel @Inject constructor(
         }
     }
 
-    fun deleteBudget(id: Long) {
+    fun deleteBudget(budget: Budget) {
         viewModelScope.launch {
-            budgetDao.deleteById(id)
+            budgetDao.delete(budget)
             refresh()
         }
     }
@@ -66,9 +69,7 @@ class BudgetViewModel @Inject constructor(
 
     private fun refresh() {
         viewModelScope.launch {
-            // Refresh the list using the same dummy month.
-            val dummyMonth = "2024-01"
-            _budgets.value = budgetDao.getAllBudgetsForMonth(dummyMonth)
+            loadBudgetsAndSpending()
         }
     }
 }

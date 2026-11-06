@@ -8,7 +8,6 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.*
 
-
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -26,6 +25,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 fun BudgetListScreen(navController: NavHostController) {
     val viewModel: BudgetViewModel = hiltViewModel()
     val budgets = viewModel.budgets.collectAsState().value
+    val spendingMap = viewModel.spendingMap.collectAsState().value
 
     Scaffold(
         topBar = { TopAppBar(title = { Text("Budgets") }) },
@@ -51,10 +51,12 @@ fun BudgetListScreen(navController: NavHostController) {
                     .padding(paddingValues)
             ) {
                 items(budgets) { budget ->
+                    val spent = spendingMap[budget.categoryId] ?: 0L
                     BudgetItem(
                         budget = budget,
+                        spent = spent,
                         onEdit = { navController.navigate("budget_edit/${budget.id}") },
-                        onDelete = { viewModel.deleteBudget(budget.id) }
+                        onDelete = { viewModel.deleteBudget(budget) }
                     )
                 }
             }
@@ -65,6 +67,7 @@ fun BudgetListScreen(navController: NavHostController) {
 @Composable
 private fun BudgetItem(
     budget: Budget,
+    spent: Long,
     onEdit: () -> Unit,
     onDelete: () -> Unit
 ) {
@@ -83,6 +86,7 @@ private fun BudgetItem(
                 Text(text = "Category ID: ${budget.categoryId}")
                 Text(text = "Month: ${budget.month}")
                 Text(text = "Limit: Ksh${budget.limitKsh}")
+                Text(text = "Spent: Ksh${spent}")
             }
             Row {
                 IconButton(onClick = onEdit) { Icon(Icons.Default.Edit, contentDescription = "Edit") }
