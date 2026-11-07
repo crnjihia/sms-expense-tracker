@@ -1,0 +1,76 @@
+# path: app/src/main/baselineProfiles/baseline-prof.txt
+# Baseline Profile for SMS Expense Tracker (com.example.smsexpensertracker)
+# Pre-compiles critical startup paths, Room database initialization,
+# SMS parsing regex engine, and Jetpack Compose render passes.
+
+# Application & Lifecycle Entry Points
+Lcom/example/smsexpensertracker/App;
+Lcom/example/smsexpensertracker/MainActivity;
+Lcom/example/smsexpensertracker/MainActivityKt;
+Lcom/example/smsexpensertracker/NotificationHelper;
+
+# Room Database, Migration, & DAOs
+Lcom/example/smsexpensertracker/data/AppDatabase;
+Lcom/example/smsexpensertracker/data/AppDatabase_Impl;
+Lcom/example/smsexpensertracker/data/Transaction;
+Lcom/example/smsexpensertracker/data/Category;
+Lcom/example/smsexpensertracker/data/Budget;
+Lcom/example/smsexpensertracker/data/CategorisationRule;
+Lcom/example/smsexpensertracker/data/SmsSourceState;
+Lcom/example/smsexpensertracker/data/TransactionDao;
+Lcom/example/smsexpensertracker/data/TransactionDao_Impl;
+Lcom/example/smsexpensertracker/data/BudgetDao;
+Lcom/example/smsexpensertracker/data/BudgetDao_Impl;
+Lcom/example/smsexpensertracker/data/RuleDao;
+Lcom/example/smsexpensertracker/data/RuleDao_Impl;
+Lcom/example/smsexpensertracker/data/SmsSourceStateDao;
+Lcom/example/smsexpensertracker/data/SmsSourceStateDao_Impl;
+
+# SMS Parsing Engine & Synthetic Matchers
+Lcom/example/smsexpensertracker/parser/SmsParser;
+Lcom/example/smsexpensertracker/parser/TemplateSmsParser;
+Lcom/example/smsexpensertracker/parser/SmsParseResult;
+Lcom/example/smsexpensertracker/parser/ParsedTransaction;
+Lcom/example/smsexpensertracker/parser/Template;
+Lcom/example/smsexpensertracker/parser/SenderTemplates;
+
+# Repositories & Ingestion Engine
+Lcom/example/smsexpensertracker/data/TransactionRepository;
+Lcom/example/smsexpensertracker/data/TransactionRepositoryImpl;
+Lcom/example/smsexpensertracker/data/BudgetRepository;
+Lcom/example/smsexpensertracker/data/BudgetRepositoryImpl;
+Lcom/example/smsexpensertracker/data/CategorisationRepository;
+Lcom/example/smsexpensertracker/data/CategorisationRepositoryImpl;
+Lcom/example/smsexpensertracker/ingestion/SmsIngestionRepository;
+Lcom/example/smsexpensertracker/ingestion/SmsIngestionRepositoryImpl;
+Lcom/example/smsexpensertracker/ingestion/SmsReceiver;
+Lcom/example/smsexpensertracker/ingestion/SmsBackfillWorker;
+Lcom/example/smsexpensertracker/ingestion/BudgetCheckWorker;
+
+# Security & Biometric Lock
+Lcom/example/smsexpensertracker/security/BiometricHelper;
+Lcom/example/smsexpensertracker/security/BiometricStatus;
+Lcom/example/smsexpensertracker/security/BiometricPromptResult;
+
+# Navigation & UI ViewModels
+Lcom/example/smsexpensertracker/ui/navigation/Screen;
+Lcom/example/smsexpensertracker/ui/navigation/NavGraphKt;
+Lcom/example/smsexpensertracker/ui/viewmodel/HomeViewModel;
+Lcom/example/smsexpensertracker/ui/viewmodel/TransactionViewModel;
+Lcom/example/smsexpensertracker/ui/viewmodel/BudgetViewModel;
+Lcom/example/smsexpensertracker/ui/viewmodel/ReportsViewModel;
+Lcom/example/smsexpensertracker/ui/viewmodel/SettingsViewModel;
+
+# Jetpack Compose Screens & Theme
+Lcom/example/smsexpensertracker/ui/screens/HomeScreenKt;
+Lcom/example/smsexpensertracker/ui/screens/TransactionsScreenKt;
+Lcom/example/smsexpensertracker/ui/screens/ReportsScreenKt;
+Lcom/example/smsexpensertracker/ui/screens/BudgetListScreenKt;
+Lcom/example/smsexpensertracker/ui/screens/BudgetEditScreenKt;
+Lcom/example/smsexpensertracker/ui/screens/SettingsScreenKt;
+Lcom/example/smsexpensertracker/ui/screens/PermissionScreenKt;
+Lcom/example/smsexpensertracker/ui/screens/ManualImportScreenKt;
+Lcom/example/smsexpensertracker/ui/theme/ThemeKt;
+Lcom/example/smsexpensertracker/ui/theme/ColorKt;
+Lcom/example/smsexpensertracker/ui/theme/TypeKt;
+
