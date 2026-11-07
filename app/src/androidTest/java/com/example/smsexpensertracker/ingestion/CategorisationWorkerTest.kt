@@ -1,23 +1,30 @@
+// path: app/src/androidTest/java/com/example/smsexpensertracker/ingestion/CategorisationWorkerTest.kt
 package com.example.smsexpensertracker.ingestion
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import androidx.work.testing.TestWorkerBuilder
-import com.example.smsexpensertracker.AppDatabase
-import com.example.smsexpensertracker.data.Budget
-import com.example.smsexpensertracker.data.Category
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.work.ListenableWorker
+import androidx.work.WorkerFactory
+import androidx.work.WorkerParameters
+import androidx.work.testing.TestListenableWorkerBuilder
+import com.example.smsexpensertracker.data.AppDatabase
+import com.example.smsexpensertracker.data.CategorisationRepository
 import com.example.smsexpensertracker.data.CategorisationRule
+import com.example.smsexpensertracker.data.Category
+import com.example.smsexpensertracker.data.RuleDao
 import com.example.smsexpensertracker.data.Transaction
 import com.example.smsexpensertracker.data.TransactionDao
-import com.example.smsexpensertracker.data.RuleDao
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
 
+@RunWith(AndroidJUnit4::class)
 class CategorisationWorkerTest {
     private lateinit var db: AppDatabase
     private lateinit var context: Context
@@ -42,26 +49,29 @@ class CategorisationWorkerTest {
     }
 
     @Test
-    fun `categorisation worker updates uncategorised transactions`() = runBlocking {
-        // Insert a category
+    fun categorisation_worker_updates_uncategorised_transactions() = runBlocking {
         val catId = db.categoryDao().insert(Category(name = "Food"))
-        // Insert a rule that matches keyword "coffee"
         ruleDao.insert(CategorisationRule(categoryId = catId, keyword = "coffee"))
-        // Insert an uncategorised transaction with description containing the keyword
         val txn = Transaction(
             amount = -500,
             timestamp = OffsetDateTime.now(ZoneOffset.UTC),
             description = "Bought coffee at cafe"
         )
         transactionDao.insert(txn)
-        // Build worker
-        val worker = TestWorkerBuilder<CategorisationWorker>(context)
-            .setWorkerFactory { _, workerParams, _ ->
-                CategorisationWorker(context, workerParams, repository)
-            }
+        val worker = TestListenableWorkerBuilder<CategorisationWorker>(context)
+            .setWorkerFactory(object : WorkerFactory() {
+                override fun createWorker(
+                    appContext: Context,
+                    workerClassName: String,
+                    workerParameters: WorkerParameters
+                ): ListenableWorker {
+                    return CategorisationWorker(appContext, workerParameters, repository)
+                }
+            })
             .build()
         val result = worker.doWork()
         val updated = result.outputData.getInt(CategorisationWorker.KEY_UPDATED, -1)
         assertEquals(1, updated)
     }
 }
+

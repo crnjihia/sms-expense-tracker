@@ -1,15 +1,21 @@
+// path: app/src/androidTest/java/com/example/smsexpensertracker/ingestion/BudgetCheckWorkerTest.kt
 package com.example.smsexpensertracker.ingestion
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.work.ListenableWorker
-import androidx.work.testing.TestWorkerBuilder
-import com.example.smsexpensertracker.AppDatabase
+import androidx.work.WorkerFactory
+import androidx.work.WorkerParameters
+import androidx.work.testing.TestListenableWorkerBuilder
+import com.example.smsexpensertracker.data.AppDatabase
 import com.example.smsexpensertracker.data.Budget
 import com.example.smsexpensertracker.data.BudgetDao
+import com.example.smsexpensertracker.data.BudgetNotifier
+import com.example.smsexpensertracker.data.BudgetRepositoryImpl
 import com.example.smsexpensertracker.data.Category
 import com.example.smsexpensertracker.data.CategoryDao
-import com.example.smsexpensertracker.data.CategorySpending
+import com.example.smsexpensertracker.data.PreferencesBudgetAlertTracker
 import com.example.smsexpensertracker.data.Transaction
 import com.example.smsexpensertracker.data.TransactionDao
 import kotlinx.coroutines.runBlocking
@@ -17,9 +23,11 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 import java.time.OffsetDateTime
-import java.time.ZoneOffset
+import java.time.ZoneId
 
+@RunWith(AndroidJUnit4::class)
 class BudgetCheckWorkerTest {
     private lateinit var db: AppDatabase
     private lateinit var context: Context
@@ -44,14 +52,11 @@ class BudgetCheckWorkerTest {
     }
 
     @Test
-    fun `budget worker sends alert when spending exceeds 80 percent`() = runBlocking {
-        // Create a category
+    fun budget_worker_sends_alert_when_spending_exceeds_80_percent() = runBlocking {
         val catId = categoryDao.insert(Category(name = "Food"))
-        // Create a budget with limit 1000 Ksh for current month
-        val now = OffsetDateTime.now(ZoneOffset.UTC)
+        val now = OffsetDateTime.now(ZoneId.of("Africa/Nairobi"))
         val monthStr = "${now.year}-${"%02d".format(now.monthValue)}"
         budgetDao.insert(Budget(categoryId = catId, month = monthStr, limitKsh = 1000))
-        // Insert a transaction of -800 (80% of limit)
         transactionDao.insert(
             Transaction(
                 amount = -800,
@@ -61,12 +66,32 @@ class BudgetCheckWorkerTest {
                 sourceStateId = null
             )
         )
-        // Build worker
-        val worker = TestWorkerBuilder<BudgetCheckWorker>(context)
-            .setWorkerFactory { _, _, _ -> BudgetCheckWorker(context, it, transactionDao, budgetDao, categoryDao) }
+        val alertTracker = PreferencesBudgetAlertTracker(context)
+        alertTracker.clearAll()
+        val notifier = object : BudgetNotifier {
+            override fun showBudgetAlert(
+                budgetId: Long,
+                categoryName: String,
+                spentKsh: Long,
+                limitKsh: Long,
+                month: String,
+                isExhausted: Boolean
+            ): Boolean = true
+        }
+        val budgetRepository = BudgetRepositoryImpl(budgetDao, transactionDao, categoryDao, alertTracker, notifier)
+
+        val worker = TestListenableWorkerBuilder<BudgetCheckWorker>(context)
+            .setWorkerFactory(object : WorkerFactory() {
+                override fun createWorker(
+                    appContext: Context,
+                    workerClassName: String,
+                    workerParameters: WorkerParameters
+                ): ListenableWorker {
+                    return BudgetCheckWorker(appContext, workerParameters, budgetRepository)
+                }
+            })
             .build()
         val result = worker.doWork()
-        // Verify that alerts_sent is 1 (warning)
         val alerts = result.outputData.getInt(BudgetCheckWorker.KEY_ALERTS_SENT, -1)
         assertEquals(1, alerts)
     }
