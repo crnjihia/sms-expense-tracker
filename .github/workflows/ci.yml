@@ -1,0 +1,39 @@
+# path: .github/workflows/ci.yml
+name: Android CI
+
+on:
+  push:
+    branches: [ main, phase3-budget-categorisation ]
+  pull_request:
+    branches: [ main, phase3-budget-categorisation ]
+
+jobs:
+  build:
+    name: Build, Lint & Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant Execute Permission to Gradlew
+        run: chmod +x gradlew
+
+      - name: Run Detekt & Ktlint
+        run: ./gradlew detekt ktlintCheck --no-daemon
+
+      - name: Run Unit Tests
+        run: ./gradlew testDebugUnitTest --no-daemon
+
+      - name: Assemble Debug APK
+        run: ./gradlew assembleDebug --no-daemon
+

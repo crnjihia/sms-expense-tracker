@@ -1,0 +1,39 @@
+# ==============================================================================
+# SMS Expense Tracker - Synthetic Kenyan SMS Fixtures (sample_messages.txt)
+# Timezone: Africa/Nairobi (UTC+3) | Currency: KES
+# ALL DATA IN THIS FILE IS STRICTLY SYNTHETIC FOR TESTING AND DEMONSTRATION.
+# NO REAL PHONE NUMBERS, NAMES, OR RECEIPT CODES ARE USED.
+# ==============================================================================
+
+--- SENDER: MPESA ---
+QA12BC34DE Confirmed. Ksh1,500.00 sent to JANE DOE 0712345678 on 15/08/2024 at 2:30 PM. New M-PESA balance is Ksh5,230.00. Transaction cost, Ksh15.00.
+
+--- SENDER: MPESA ---
+SK88AA11BB Confirmed. Ksh2,450.00 paid to KPLC PREPAID for account 14285714285 on 20/08/2024 at 7:15 PM. New M-PESA balance is Ksh12,780.00. Transaction cost, Ksh23.00.
+
+--- SENDER: MPESA ---
+TK33CC22DD Confirmed. Ksh3,800.00 paid to NAIVAS SUPERMARKET. on 18/08/2024 at 1:45 PM. New M-PESA balance is Ksh8,980.00. Transaction cost, Ksh0.00.
+
+--- SENDER: MPESA ---
+WK44DD33EE Confirmed. on 10/08/2024 at 11:20 AM Withdraw Ksh5,000.00 from 123456 - AGENT KIMATHI STREET New M-PESA balance is Ksh7,450.00. Transaction cost, Ksh67.00.
+
+--- SENDER: MPESA ---
+AK55EE44FF Confirmed. You bought Ksh500.00 of airtime on 12/08/2024 at 8:05 AM. New M-PESA balance is Ksh4,500.00. Transaction cost, Ksh0.00.
+
+--- SENDER: MPESA ---
+RK66FF55GG Confirmed. You have received Ksh10,000.00 from JOHN MWANGI 0722001122 on 01/08/2024 at 10:00 AM. New M-PESA balance is Ksh17,450.00.
+
+--- SENDER: EQUITY ---
+You have spent KES 4,200.00 at CARREFOUR HUB on 14/08/2024 16:30. Available Bal: KES 45,800.00. Ref: EQ991122.
+
+--- SENDER: EQUITY ---
+Your A/C 1234567890 has been debited with KES 1,850.00 on 16/08/2024 12:10 PM. Available Bal: KES 43,950.00. Ref: EQ883344.
+
+--- SENDER: EQUITY ---
+Your A/C 1234567890 has been credited with KES 50,000.00 on 30/07/2024 09:00 AM. Available Bal: KES 93,950.00. Ref: EQ774455.
+
+--- SENDER: KCB ---
+KES 3,100.00 debited from A/C 0987654321 on 22/08/2024 14:05 for JAVA HOUSE NAIROBI. Bal KES 32,400.00. Ref KCB556677.
+
+--- SENDER: KCB ---
+KES 15,000.00 credited to A/C 0987654321 on 05/08/2024 11:30. New balance is KES 47,400.00. Ref KCB998811.
