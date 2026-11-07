@@ -1,13 +1,17 @@
+// path: app/src/main/kotlin/com/example/smsexpensertracker/data/Rule.kt
 package com.example.smsexpensertracker.data
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
- * Simple categorisation rule – if a transaction description contains [keyword] (case‑insensitive),
- * the transaction will be assigned to the target [categoryId].
+ * Categorisation rule: assigns [categoryId] when transaction description matches [keyword].
  */
-@Entity(tableName = "categorisation_rules")
+@Entity(
+    tableName = "categorisation_rules",
+    indices = [Index(value = ["keyword"])]
+)
 data class CategorisationRule(
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     val categoryId: Long,

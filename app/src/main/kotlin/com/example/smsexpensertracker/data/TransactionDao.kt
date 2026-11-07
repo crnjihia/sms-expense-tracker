@@ -1,3 +1,4 @@
+// path: app/src/main/kotlin/com/example/smsexpensertracker/data/TransactionDao.kt
 package com.example.smsexpensertracker.data
 
 import androidx.room.Dao
@@ -12,7 +13,6 @@ import java.time.OffsetDateTime
 /** DAO for transaction operations. */
 @Dao
 interface TransactionDao {
-    // New query to sum spending per category for a given month (inclusive, expenses only)
     @Query("""
         SELECT categoryId AS categoryId, SUM(amount) AS total
         FROM transactions
@@ -23,8 +23,21 @@ interface TransactionDao {
     """)
     suspend fun getSpendingByCategory(start: OffsetDateTime, end: OffsetDateTime): List<CategorySpending>
 
+    @Query("""
+        SELECT categoryId AS categoryId, SUM(amount) AS total
+        FROM transactions
+        WHERE categoryId IS NOT NULL
+          AND amount < 0
+          AND timestamp BETWEEN :start AND :end
+        GROUP BY categoryId
+    """)
+    fun getSpendingByCategoryFlow(start: OffsetDateTime, end: OffsetDateTime): Flow<List<CategorySpending>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(transaction: Transaction): Long
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(transactions: List<Transaction>): List<Long>
 
     @Update
     suspend fun update(transaction: Transaction)
@@ -34,6 +47,28 @@ interface TransactionDao {
 
     @Query("SELECT * FROM transactions WHERE id = :id")
     suspend fun getById(id: Long): Transaction?
+
+    @Query("SELECT * FROM transactions WHERE receiptCode = :receiptCode LIMIT 1")
+    suspend fun findByReceiptCode(receiptCode: String): Transaction?
+
+    @Query("""
+        SELECT * FROM transactions
+        WHERE description LIKE '%' || :query || '%'
+           OR counterparty LIKE '%' || :query || '%'
+           OR receiptCode LIKE '%' || :query || '%'
+        ORDER BY timestamp DESC
+    """)
+    fun searchTransactions(query: String): Flow<List<Transaction>>
+
+    @Query("SELECT * FROM transactions WHERE categoryId = :categoryId ORDER BY timestamp DESC")
+    fun getTransactionsByCategory(categoryId: Long): Flow<List<Transaction>>
+
+    @Query("""
+        SELECT * FROM transactions
+        WHERE timestamp BETWEEN :start AND :end
+        ORDER BY timestamp DESC
+    """)
+    fun getTransactionsByDateRange(start: OffsetDateTime, end: OffsetDateTime): Flow<List<Transaction>>
 
     @Query("""
         SELECT * FROM transactions
@@ -48,8 +83,14 @@ interface TransactionDao {
         description: String
     ): Transaction?
 
-    @Query("SELECT * FROM transactions WHERE categoryId IS NULL")
+    @Query("SELECT * FROM transactions WHERE categoryId IS NULL ORDER BY timestamp DESC")
     suspend fun getUncategorisedTransactions(): List<Transaction>
+
+    @Query("DELETE FROM transactions WHERE id = :id")
+    suspend fun deleteById(id: Long)
+
+    @Query("DELETE FROM transactions")
+    suspend fun deleteAll()
 }
 
 /** DAO for category operations. */
@@ -57,6 +98,9 @@ interface TransactionDao {
 interface CategoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(category: Category): Long
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAll(categories: List<Category>): List<Long>
 
     @Update
     suspend fun update(category: Category)
@@ -66,6 +110,12 @@ interface CategoryDao {
 
     @Query("SELECT * FROM categories WHERE id = :id")
     suspend fun getById(id: Long): Category?
+
+    @Query("SELECT * FROM categories WHERE name = :name LIMIT 1")
+    suspend fun findByName(name: String): Category?
+
+    @Query("DELETE FROM categories WHERE id = :id")
+    suspend fun deleteById(id: Long)
 }
 
 /** DAO for budget operations. */
@@ -80,13 +130,29 @@ interface BudgetDao {
     @Delete
     suspend fun delete(budget: Budget)
 
+    @Query("SELECT * FROM budgets ORDER BY month DESC")
+    fun getAllBudgetsFlow(): Flow<List<Budget>>
+
     @Query("SELECT * FROM budgets")
     suspend fun getAllBudgets(): List<Budget>
 
-    @Query("""
-        SELECT * FROM budgets WHERE month = :monthStr
-    """)
+    @Query("SELECT * FROM budgets WHERE month = :monthStr")
+    fun getBudgetsForMonthFlow(monthStr: String): Flow<List<Budget>>
+
+    @Query("SELECT * FROM budgets WHERE month = :monthStr")
     suspend fun getAllBudgetsForMonth(monthStr: String): List<Budget>
+
+    @Query("SELECT * FROM budgets WHERE categoryId = :categoryId AND month = :monthStr LIMIT 1")
+    suspend fun getBudgetByCategoryAndMonth(categoryId: Long, monthStr: String): Budget?
+
+    @Query("SELECT * FROM budgets WHERE id = :id LIMIT 1")
+    suspend fun getById(id: Long): Budget?
+
+    @Query("DELETE FROM budgets WHERE id = :id")
+    suspend fun deleteById(id: Long)
+
+    @Query("DELETE FROM budgets")
+    suspend fun deleteAll()
 }
 
 /** DAO for SMS source state tracking. */
@@ -98,6 +164,12 @@ interface SmsSourceStateDao {
     @Update
     suspend fun update(state: SmsSourceState)
 
-    @Query("SELECT * FROM sms_source_state WHERE sourceName = :sourceName")
+    @Query("SELECT * FROM sms_source_state ORDER BY sourceName ASC")
+    fun getAllStatesFlow(): Flow<List<SmsSourceState>>
+
+    @Query("SELECT * FROM sms_source_state WHERE sourceName = :sourceName LIMIT 1")
     suspend fun getBySource(sourceName: String): SmsSourceState?
+
+    @Query("DELETE FROM sms_source_state")
+    suspend fun deleteAll()
 }

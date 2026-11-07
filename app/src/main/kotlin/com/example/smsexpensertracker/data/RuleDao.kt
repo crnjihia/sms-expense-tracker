@@ -1,3 +1,4 @@
+// path: app/src/main/kotlin/com/example/smsexpensertracker/data/RuleDao.kt
 package com.example.smsexpensertracker.data
 
 import androidx.room.Dao
@@ -13,6 +14,9 @@ interface RuleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(rule: CategorisationRule): Long
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(rules: List<CategorisationRule>): List<Long>
+
     @Update
     suspend fun update(rule: CategorisationRule)
 
@@ -24,4 +28,7 @@ interface RuleDao {
 
     @Query("DELETE FROM categorisation_rules WHERE id = :id")
     suspend fun deleteById(id: Long)
+
+    @Query("DELETE FROM categorisation_rules")
+    suspend fun deleteAll()
 }
