@@ -120,3 +120,14 @@ dependencies {
 kapt {
     correctErrorTypes = true
 }
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    baseline = file("detekt-baseline.xml")
+}
+
+ktlint {
+    android.set(true)
+    ignoreFailures.set(true)
+}

@@ -1,0 +1,283 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:BudgetEditScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun BudgetEditScreen(navController: NavHostController, budgetId: Long?)</ID>
+    <ID>CyclomaticComplexMethod:BudgetRepository.kt$BudgetRepositoryImpl$override suspend fun checkBudgetsAndNotify( targetMonth: String?, zoneId: ZoneId ): BudgetCheckResult</ID>
+    <ID>CyclomaticComplexMethod:SmsIngestion.kt$SmsIngestionRepository$suspend fun backfillAll(context: Context, batchSize: Int = 50): Int</ID>
+    <ID>EmptyFunctionBlock:CsvExportTest.kt$ExportFakeCategoryDao${}</ID>
+    <ID>EmptyFunctionBlock:CsvExportTest.kt$ExportFakeTransactionDao${}</ID>
+    <ID>EmptyFunctionBlock:HomeViewModelTest.kt$HomeFakeBudgetRepository${}</ID>
+    <ID>EmptyFunctionBlock:HomeViewModelTest.kt$HomeFakeTransactionRepository${}</ID>
+    <ID>EmptyFunctionBlock:ReportsViewModelTest.kt$ReportsFakeCategoryDao${}</ID>
+    <ID>EmptyFunctionBlock:ReportsViewModelTest.kt$ReportsFakeTransactionDao${}</ID>
+    <ID>FunctionNaming:BudgetEditScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun BudgetEditScreen(navController: NavHostController, budgetId: Long?)</ID>
+    <ID>FunctionNaming:BudgetListScreen.kt$@Composable private fun BudgetItem( item: BudgetProgress, onEdit: () -&gt; Unit, onDelete: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:BudgetListScreen.kt$@Composable private fun BudgetSummaryCard( month: String, totalSpent: Long, totalLimit: Long, percentage: Float )</ID>
+    <ID>FunctionNaming:BudgetListScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun BudgetListScreen(navController: NavHostController)</ID>
+    <ID>FunctionNaming:HomeScreen.kt$@Composable private fun ActionChip( icon: androidx.compose.ui.graphics.vector.ImageVector, label: String, onClick: () -&gt; Unit, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:HomeScreen.kt$@Composable private fun MonthFinancialSummaryCard( month: String, income: String, expense: String, net: String, budgetRatio: Float, hasBudget: Boolean )</ID>
+    <ID>FunctionNaming:HomeScreen.kt$@Composable private fun RecentTransactionItem(item: TransactionItem)</ID>
+    <ID>FunctionNaming:HomeScreen.kt$@Composable private fun TopCategoryItem(category: TopCategorySpending)</ID>
+    <ID>FunctionNaming:HomeScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun HomeScreen(navController: NavHostController)</ID>
+    <ID>FunctionNaming:MainActivity.kt$@Composable fun SmsExpenseTrackerApp()</ID>
+    <ID>FunctionNaming:ManualImportScreen.kt$@Composable fun ManualImportScreen(navController: NavHostController)</ID>
+    <ID>FunctionNaming:NavGraph.kt$@Composable fun AppNavGraph()</ID>
+    <ID>FunctionNaming:PermissionScreen.kt$@Composable private fun FeatureRow(text: String)</ID>
+    <ID>FunctionNaming:PermissionScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun PermissionScreen(navController: NavHostController)</ID>
+    <ID>FunctionNaming:ReportsScreen.kt$@Composable private fun CategoryBreakdownCard( slices: List&lt;CategoryReportSlice&gt;, totalPeriodExpense: String )</ID>
+    <ID>FunctionNaming:ReportsScreen.kt$@Composable private fun CategoryDetailRow(slice: CategoryReportSlice, color: Color)</ID>
+    <ID>FunctionNaming:ReportsScreen.kt$@Composable private fun KpiRow(state: ReportsUiState)</ID>
+    <ID>FunctionNaming:ReportsScreen.kt$@Composable private fun PeriodSelector( selectedPeriod: ReportPeriod, onPeriodSelected: (ReportPeriod) -&gt; Unit )</ID>
+    <ID>FunctionNaming:ReportsScreen.kt$@Composable private fun TrendCard(trends: List&lt;MonthlyTrendPoint&gt;)</ID>
+    <ID>FunctionNaming:ReportsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun ReportsScreen( navController: NavController, viewModel: ReportsViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:RuleEditScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun RuleEditScreen(navController: NavHostController, ruleId: Long?)</ID>
+    <ID>FunctionNaming:RuleListScreen.kt$@Composable private fun RuleItem( rule: CategorisationRule, onEdit: () -&gt; Unit, onDelete: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:RuleListScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun RuleListScreen(navController: NavHostController)</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun AboutCard()</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun AppearanceCard( currentTheme: AppThemeMode, currentCurrency: String, onThemeSelected: (AppThemeMode) -&gt; Unit, onCurrencySelected: (String) -&gt; Unit )</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun AutomationCard( isAutoCategorise: Boolean, threshold: Int, onToggleAutoCategorise: (Boolean) -&gt; Unit, onSelectThreshold: (Int) -&gt; Unit )</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun BiometricLockCard( isBiometricEnabled: Boolean, biometricStatus: BiometricStatus, onToggleBiometric: (Boolean) -&gt; Unit )</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun DataManagementCard( isExporting: Boolean, onExportCsv: () -&gt; Unit, onManualImport: () -&gt; Unit, onManageRules: () -&gt; Unit, onWipeData: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun PermissionRow(label: String, isGranted: Boolean)</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun PermissionsCard( isReadSmsGranted: Boolean, isReceiveSmsGranted: Boolean, isNotificationsGranted: Boolean, onConfigurePermissions: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@Composable private fun SecurityBannerCard()</ID>
+    <ID>FunctionNaming:SettingsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SettingsScreen( navController: NavController, viewModel: SettingsViewModel = hiltViewModel() )</ID>
+    <ID>FunctionNaming:Theme.kt$@Composable fun SmsExpenseTrackerTheme( useDarkTheme: Boolean = isSystemInDarkTheme(), useDynamicColor: Boolean = true, content: @Composable () -&gt; Unit )</ID>
+    <ID>FunctionNaming:TransactionsScreen.kt$@Composable private fun EditCategoryDialog( item: TransactionItem, categories: List&lt;com.example.smsexpensertracker.data.Category&gt;, onDismiss: () -&gt; Unit, onSave: (Long?, String?) -&gt; Unit )</ID>
+    <ID>FunctionNaming:TransactionsScreen.kt$@Composable private fun SplitTransactionDialog( item: TransactionItem, categories: List&lt;com.example.smsexpensertracker.data.Category&gt;, onDismiss: () -&gt; Unit, onSplit: (Long, Long?, Long, Long?) -&gt; Unit )</ID>
+    <ID>FunctionNaming:TransactionsScreen.kt$@Composable private fun TransactionRowItem( item: TransactionItem, onEditCategory: () -&gt; Unit, onSplit: () -&gt; Unit, onDelete: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:TransactionsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun TransactionsScreen(navController: NavHostController)</ID>
+    <ID>LongMethod:BudgetEditScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun BudgetEditScreen(navController: NavHostController, budgetId: Long?)</ID>
+    <ID>LongMethod:BudgetListScreen.kt$@Composable private fun BudgetItem( item: BudgetProgress, onEdit: () -&gt; Unit, onDelete: () -&gt; Unit )</ID>
+    <ID>LongMethod:BudgetListScreen.kt$@Composable private fun BudgetSummaryCard( month: String, totalSpent: Long, totalLimit: Long, percentage: Float )</ID>
+    <ID>LongMethod:BudgetListScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun BudgetListScreen(navController: NavHostController)</ID>
+    <ID>LongMethod:BudgetRepository.kt$BudgetRepositoryImpl$override suspend fun checkBudgetsAndNotify( targetMonth: String?, zoneId: ZoneId ): BudgetCheckResult</ID>
+    <ID>LongMethod:HomeScreen.kt$@Composable private fun MonthFinancialSummaryCard( month: String, income: String, expense: String, net: String, budgetRatio: Float, hasBudget: Boolean )</ID>
+    <ID>LongMethod:HomeScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun HomeScreen(navController: NavHostController)</ID>
+    <ID>LongMethod:NavGraph.kt$@Composable fun AppNavGraph()</ID>
+    <ID>LongMethod:PermissionScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun PermissionScreen(navController: NavHostController)</ID>
+    <ID>LongMethod:ReportsScreen.kt$@Composable private fun CategoryBreakdownCard( slices: List&lt;CategoryReportSlice&gt;, totalPeriodExpense: String )</ID>
+    <ID>LongMethod:ReportsScreen.kt$@Composable private fun TrendCard(trends: List&lt;MonthlyTrendPoint&gt;)</ID>
+    <ID>LongMethod:ReportsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun ReportsScreen( navController: NavController, viewModel: ReportsViewModel = hiltViewModel() )</ID>
+    <ID>LongMethod:SettingsScreen.kt$@Composable private fun AppearanceCard( currentTheme: AppThemeMode, currentCurrency: String, onThemeSelected: (AppThemeMode) -&gt; Unit, onCurrencySelected: (String) -&gt; Unit )</ID>
+    <ID>LongMethod:SettingsScreen.kt$@Composable private fun DataManagementCard( isExporting: Boolean, onExportCsv: () -&gt; Unit, onManualImport: () -&gt; Unit, onManageRules: () -&gt; Unit, onWipeData: () -&gt; Unit )</ID>
+    <ID>LongMethod:SettingsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SettingsScreen( navController: NavController, viewModel: SettingsViewModel = hiltViewModel() )</ID>
+    <ID>LongMethod:TransactionRepository.kt$TransactionRepositoryImpl$override fun getHomeSummaryFlow(zoneId: ZoneId): Flow&lt;HomeMonthSummary&gt;</ID>
+    <ID>LongMethod:TransactionsScreen.kt$@Composable private fun TransactionRowItem( item: TransactionItem, onEditCategory: () -&gt; Unit, onSplit: () -&gt; Unit, onDelete: () -&gt; Unit )</ID>
+    <ID>LongMethod:TransactionsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun TransactionsScreen(navController: NavHostController)</ID>
+    <ID>LongParameterList:BudgetRepository.kt$BudgetNotifier$( budgetId: Long, categoryName: String, spentKsh: Long, limitKsh: Long, month: String, isExhausted: Boolean )</ID>
+    <ID>LongParameterList:HomeScreen.kt$( month: String, income: String, expense: String, net: String, budgetRatio: Float, hasBudget: Boolean )</ID>
+    <ID>LongParameterList:NotificationHelper.kt$NotificationHelper$( context: Context, budgetId: Long, categoryName: String, spentKsh: Long, limitKsh: Long, month: String, isExhausted: Boolean )</ID>
+    <ID>LongParameterList:SettingsViewModel.kt$SettingsViewModel$( @ApplicationContext private val context: Context, private val biometricHelper: BiometricHelper, private val csvExportManager: CsvExportManager, private val transactionDao: TransactionDao, private val categoryDao: CategoryDao, private val ruleDao: RuleDao, private val budgetDao: BudgetDao, private val smsSourceStateDao: SmsSourceStateDao )</ID>
+    <ID>LoopWithTooManyJumpStatements:SmsIngestion.kt$SmsIngestionRepository$while</ID>
+    <ID>MagicNumber:App.kt$App$12</ID>
+    <ID>MagicNumber:BudgetListScreen.kt$0xFFE65100</ID>
+    <ID>MagicNumber:BudgetListScreen.kt$0xFFFFE0B2</ID>
+    <ID>MagicNumber:BudgetListScreen.kt$100</ID>
+    <ID>MagicNumber:BudgetRepository.kt$BudgetProgress$0.80f</ID>
+    <ID>MagicNumber:BudgetRepository.kt$BudgetProgress$100f</ID>
+    <ID>MagicNumber:BudgetRepository.kt$BudgetRepositoryImpl$0.8</ID>
+    <ID>MagicNumber:BudgetRepository.kt$BudgetRepositoryImpl$23</ID>
+    <ID>MagicNumber:BudgetRepository.kt$BudgetRepositoryImpl$59</ID>
+    <ID>MagicNumber:BudgetRepository.kt$BudgetRepositoryImpl$999_999_999</ID>
+    <ID>MagicNumber:Color.kt$0xFF00210F</ID>
+    <ID>MagicNumber:Color.kt$0xFF00391E</ID>
+    <ID>MagicNumber:Color.kt$0xFF00522E</ID>
+    <ID>MagicNumber:Color.kt$0xFF006B3E</ID>
+    <ID>MagicNumber:Color.kt$0xFF0D1F13</ID>
+    <ID>MagicNumber:Color.kt$0xFF101511</ID>
+    <ID>MagicNumber:Color.kt$0xFF181D18</ID>
+    <ID>MagicNumber:Color.kt$0xFF223526</ID>
+    <ID>MagicNumber:Color.kt$0xFF384B3C</ID>
+    <ID>MagicNumber:Color.kt$0xFF410002</ID>
+    <ID>MagicNumber:Color.kt$0xFF4F6353</ID>
+    <ID>MagicNumber:Color.kt$0xFF5EDD89</ID>
+    <ID>MagicNumber:Color.kt$0xFF690005</ID>
+    <ID>MagicNumber:Color.kt$0xFF7CFBA3</ID>
+    <ID>MagicNumber:Color.kt$0xFF93000A</ID>
+    <ID>MagicNumber:Color.kt$0xFFB6CCB8</ID>
+    <ID>MagicNumber:Color.kt$0xFFBA1A1A</ID>
+    <ID>MagicNumber:Color.kt$0xFFD2E8D4</ID>
+    <ID>MagicNumber:Color.kt$0xFFE0E4DE</ID>
+    <ID>MagicNumber:Color.kt$0xFFF6FBF3</ID>
+    <ID>MagicNumber:Color.kt$0xFFFFB4AB</ID>
+    <ID>MagicNumber:Color.kt$0xFFFFDAD6</ID>
+    <ID>MagicNumber:Color.kt$0xFFFFFFFF</ID>
+    <ID>MagicNumber:HomeScreen.kt$0xFF2E7D32</ID>
+    <ID>MagicNumber:HomeScreen.kt$100</ID>
+    <ID>MagicNumber:NotificationHelper.kt$NotificationHelper$100</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0.5f</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFF00796B</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFF0288D1</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFF2E7D32</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFF5D4037</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFF7B1FA2</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFFC2185B</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFFD32F2F</ID>
+    <ID>MagicNumber:ReportsScreen.kt$0xFFF57C00</ID>
+    <ID>MagicNumber:ReportsScreen.kt$20f</ID>
+    <ID>MagicNumber:ReportsScreen.kt$360f</ID>
+    <ID>MagicNumber:ReportsScreen.kt$8f</ID>
+    <ID>MagicNumber:ReportsScreen.kt$90f</ID>
+    <ID>MagicNumber:ReportsViewModel.kt$CategoryReportSlice$100f</ID>
+    <ID>MagicNumber:ReportsViewModel.kt$ReportPeriod.LAST_3_MONTHS$3</ID>
+    <ID>MagicNumber:ReportsViewModel.kt$ReportPeriod.LAST_6_MONTHS$6</ID>
+    <ID>MagicNumber:ReportsViewModel.kt$ReportPeriod.THIS_YEAR$12</ID>
+    <ID>MagicNumber:ReportsViewModel.kt$ReportsViewModel$5_000</ID>
+    <ID>MagicNumber:SettingsScreen.kt$100</ID>
+    <ID>MagicNumber:SettingsScreen.kt$80</ID>
+    <ID>MagicNumber:SettingsScreen.kt$90</ID>
+    <ID>MagicNumber:SettingsViewModel.kt$SettingsViewModel$80</ID>
+    <ID>MagicNumber:SmsIngestion.kt$SmsReceiver$10</ID>
+    <ID>MagicNumber:TransactionRepository.kt$TopCategorySpending$100f</ID>
+    <ID>MagicNumber:TransactionRepository.kt$TransactionRepositoryImpl$4</ID>
+    <ID>MagicNumber:TransactionRepository.kt$TransactionRepositoryImpl$5</ID>
+    <ID>MagicNumber:TransactionRepository.kt$TransactionRepositoryImpl$7</ID>
+    <ID>MagicNumber:TransactionsScreen.kt$0xFF2E7D32</ID>
+    <ID>MagicNumber:TransactionsScreen.kt$3</ID>
+    <ID>MatchingDeclarationName:BackfillWorker.kt$SmsBackfillWorker : CoroutineWorker</ID>
+    <ID>MatchingDeclarationName:Rule.kt$CategorisationRule</ID>
+    <ID>MaxLineLength:AppDatabase.kt$AppDatabase.Companion.&lt;no name provided&gt;$db.execSQL("CREATE INDEX IF NOT EXISTS index_categorisation_rules_keyword ON categorisation_rules (keyword)")</ID>
+    <ID>MaxLineLength:AppDatabase.kt$AppDatabase.Companion.&lt;no name provided&gt;$db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS index_budgets_categoryId_month ON budgets (categoryId, month)")</ID>
+    <ID>MaxLineLength:AppDatabase.kt$AppDatabase.Companion.&lt;no name provided&gt;$db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS index_sms_source_state_sourceName ON sms_source_state (sourceName)")</ID>
+    <ID>MaxLineLength:BudgetListScreen.kt$color = if (item.isExhausted) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline</ID>
+    <ID>MaxLineLength:BudgetListScreen.kt$contentDescription = "Budget summary for $month: Spent KES $totalSpent of KES $totalLimit limit, $percentInt percent used"</ID>
+    <ID>MaxLineLength:BudgetListScreen.kt$val itemAccessibilityDescription = "${item.categoryName} budget: ${item.percentageInt} percent used, ${item.formattedSpent} of ${item.formattedLimit}. ${if (item.isExhausted) "Exhausted" else "Remaining ${item.formattedRemaining}"}"</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetRepositoryTest$Transaction(id = 10L, amount = -4_000L, timestamp = timestamp, description = "Total Energies", categoryId = catId)</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetRepositoryTest$Transaction(id = 11L, amount = -1_250L, timestamp = timestamp.plusDays(2), description = "Shell", categoryId = catId)</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetRepositoryTest$Transaction(id = 20L, amount = -4_500L, timestamp = timestamp, description = "Java House", categoryId = catId)</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetRepositoryTest$fakeTransactionDao.insert(Transaction(id = 30L, amount = -3_000L, timestamp = oct31Eat, description = "Oct Expense", categoryId = catId))</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetRepositoryTest$fakeTransactionDao.insert(Transaction(id = 31L, amount = -2_000L, timestamp = nov1Eat, description = "Nov Expense", categoryId = catId))</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetRepositoryTest$fakeTransactionDao.insert(Transaction(id = 40L, amount = -6_000L, timestamp = ts, description = "Shoes", categoryId = catId))</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetTestFakeTransactionDao$.</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetTestFakeTransactionDao$override fun getTransactionsByDateRange(start: OffsetDateTime, end: OffsetDateTime): Flow&lt;List&lt;Transaction&gt;&gt;</ID>
+    <ID>MaxLineLength:BudgetRepositoryTest.kt$BudgetTestFakeTransactionDao$override suspend fun findByReceiptCode(receiptCode: String): Transaction?</ID>
+    <ID>MaxLineLength:CategorisationRepositoryTest.kt$CategorisationRepositoryTest$val txn1 = Transaction(id = 201L, amount = -1500L, timestamp = now, description = "QUICKMART KILIMANI", counterparty = "QUICKMART", categoryId = null)</ID>
+    <ID>MaxLineLength:CategorisationRepositoryTest.kt$CategorisationRepositoryTest$val txn2 = Transaction(id = 202L, amount = -2300L, timestamp = now, description = "QUICKMART CBD", counterparty = "QUICKMART", categoryId = 1L)</ID>
+    <ID>MaxLineLength:CategorisationRepositoryTest.kt$CategorisationRepositoryTest$val txn3 = Transaction(id = 203L, amount = -800L, timestamp = now, description = "NAIVAS", counterparty = "NAIVAS", categoryId = 1L)</ID>
+    <ID>MaxLineLength:CategorisationRepositoryTest.kt$FakeTransactionDao$override fun getSpendingByCategoryFlow(start: OffsetDateTime, end: OffsetDateTime): Flow&lt;List&lt;CategorySpending&gt;&gt;</ID>
+    <ID>MaxLineLength:CategorisationRepositoryTest.kt$FakeTransactionDao$override suspend fun getSpendingByCategory(start: OffsetDateTime, end: OffsetDateTime): List&lt;CategorySpending&gt;</ID>
+    <ID>MaxLineLength:CsvExportTest.kt$CsvExportTest$assertEquals("Receipt Code,Date (EAT),Counterparty,Description,Transaction Type,Amount (KES),Balance (KES),Fee (KES),Category", lines[0])</ID>
+    <ID>MaxLineLength:CsvExportTest.kt$CsvExportTest$val expected = "SH12345678,2026-11-06 15:30:00,Java House,\"Payment to Java House, Nairobi\",PAYBILL,-1500,12450,23,Dining"</ID>
+    <ID>MaxLineLength:CsvExportTest.kt$ExportFakeTransactionDao$override fun getSpendingByCategoryFlow(start: OffsetDateTime, end: OffsetDateTime): Flow&lt;List&lt;CategorySpending&gt;&gt;</ID>
+    <ID>MaxLineLength:CsvExportTest.kt$ExportFakeTransactionDao$override fun getTransactionsByDateRange(start: OffsetDateTime, end: OffsetDateTime): Flow&lt;List&lt;Transaction&gt;&gt;</ID>
+    <ID>MaxLineLength:CsvExportTest.kt$ExportFakeTransactionDao$override suspend fun findByReceiptCode(receiptCode: String): Transaction?</ID>
+    <ID>MaxLineLength:CsvExportTest.kt$ExportFakeTransactionDao$override suspend fun getSpendingByCategory(start: OffsetDateTime, end: OffsetDateTime): List&lt;CategorySpending&gt;</ID>
+    <ID>MaxLineLength:DatabaseMigrationTest.kt$DatabaseMigrationTest$assertTrue(executedSqlStatements.any { it.contains("ALTER TABLE transactions ADD COLUMN transactionType TEXT") })</ID>
+    <ID>MaxLineLength:HomeScreen.kt$Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null, modifier = Modifier.size(16.dp))</ID>
+    <ID>MaxLineLength:HomeScreen.kt$Text("$budgetPercent% Used", style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.SemiBold)</ID>
+    <ID>MaxLineLength:HomeScreen.kt$Text(category.categoryName, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)</ID>
+    <ID>MaxLineLength:HomeScreen.kt$Text(expense, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.error)</ID>
+    <ID>MaxLineLength:HomeScreen.kt$Text(income, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color(0xFF2E7D32))</ID>
+    <ID>MaxLineLength:HomeScreen.kt$color = if (budgetRatio &gt;= 1.0f) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary</ID>
+    <ID>MaxLineLength:HomeScreen.kt$contentDescription = "${category.categoryName} spending: ${category.formattedSpent}, ${category.percentageInt} percent of total spending"</ID>
+    <ID>MaxLineLength:HomeScreen.kt$contentDescription = "${item.displayTitle}, ${if (item.isExpense) "expense" else "income"} of ${item.formattedAmount}, ${item.categoryName ?: "uncategorised"}"</ID>
+    <ID>MaxLineLength:ReportsScreen.kt$contentDescription = "${slice.categoryName}: ${slice.formattedExpense}, ${slice.percentageInt} percent of spending"</ID>
+    <ID>MaxLineLength:ReportsScreen.kt$contentDescription = "Monthly spending trend bar chart across ${trends.size} months. $maxSummary."</ID>
+    <ID>MaxLineLength:ReportsScreen.kt$val donutAccessibilityDescription = "Spending by category donut chart. Total spent: $totalPeriodExpense across ${slices.size} categories. Top category: ${topSlice?.categoryName ?: "none"} at ${topSlice?.percentageInt ?: 0} percent."</ID>
+    <ID>MaxLineLength:ReportsViewModelTest.kt$ReportsFakeTransactionDao$override fun getSpendingByCategoryFlow(start: OffsetDateTime, end: OffsetDateTime): Flow&lt;List&lt;CategorySpending&gt;&gt;</ID>
+    <ID>MaxLineLength:ReportsViewModelTest.kt$ReportsFakeTransactionDao$override suspend fun findByReceiptCode(receiptCode: String): Transaction?</ID>
+    <ID>MaxLineLength:ReportsViewModelTest.kt$ReportsFakeTransactionDao$override suspend fun getSpendingByCategory(start: OffsetDateTime, end: OffsetDateTime): List&lt;CategorySpending&gt;</ID>
+    <ID>MaxLineLength:SettingsScreen.kt$Icon(Icons.Default.NotificationsActive, contentDescription = null, tint = MaterialTheme.colorScheme.primary)</ID>
+    <ID>MaxLineLength:SettingsScreen.kt$Text("Auto-Categorise Receipts", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)</ID>
+    <ID>MaxLineLength:SettingsScreen.kt$Text("Auto-assign categories on incoming SMS", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)</ID>
+    <ID>MaxLineLength:SettingsScreen.kt$Text("Budget Alert Warning Threshold", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)</ID>
+    <ID>MaxLineLength:SettingsScreen.kt$Text("Currency: KES • Safe SAF Export • Zero Network Permissions", style = MaterialTheme.typography.bodySmall)</ID>
+    <ID>MaxLineLength:SettingsScreen.kt$contentDescription = "Toggle Biometric or PIN lock: ${if (isBiometricEnabled) "Enabled" else "Disabled"}"</ID>
+    <ID>MaxLineLength:SettingsScreen.kt$icon = { Icon(Icons.Default.DeleteForever, contentDescription = null, tint = MaterialTheme.colorScheme.error) }</ID>
+    <ID>MaxLineLength:SmsIngestionRepositoryTest.kt$FakeTestTransactionDao$override fun getSpendingByCategoryFlow(start: OffsetDateTime, end: OffsetDateTime): Flow&lt;List&lt;CategorySpending&gt;&gt;</ID>
+    <ID>MaxLineLength:SmsIngestionRepositoryTest.kt$FakeTestTransactionDao$override suspend fun getSpendingByCategory(start: OffsetDateTime, end: OffsetDateTime): List&lt;CategorySpending&gt;</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)(?:Dear\\s+Customer,\\s*)?(?:KES|Ksh)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+has\\s+been\\s+credited\\s+to\\s+your\\s+A/C\\s+(?&lt;account&gt;\\S+)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}(?::\\d{2})?\\s*[AP]?M?)(?:\\s+by\\s+(?&lt;sender&gt;[^.]+?))?\\.\\s*(?:Bal\\s+(?:KES|Ksh)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?.*?Ref:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)(?:Dear\\s+Customer,\\s*)?(?:KES|Ksh)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+has\\s+been\\s+debited\\s+from\\s+your\\s+A/C\\s+(?&lt;account&gt;\\S+)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}(?::\\d{2})?\\s*[AP]?M?)(?:\\s+at\\s+(?&lt;merchant&gt;[^.]+?))?\\.\\s*(?:Bal\\s+(?:KES|Ksh)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?.*?Ref:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+received\\s+(?:to|from)\\s+(?&lt;counterparty&gt;[^.]+?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\..*?Ref:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+sent\\s+to\\s+(?&lt;counterparty&gt;[^.]+?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\..*?Ref:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)(?:Your\\s+A/C\\s+(?&lt;account&gt;\\S+)\\s+has\\s+been\\s+credited|Credit\\s+of)\\s+(?:KES|Ksh)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}\\s+\\d{1,2}:\\d{2}(?::\\d{2})?\\s*[AP]?M?)(?:\\s+by\\s+(?&lt;sender&gt;[^.]+?))?\\.\\s*(?:Available\\s+balance\\s+is\\s+(?:KES|Ksh)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?.*?Ref:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)(?:Your\\s+A/C\\s+(?&lt;account&gt;\\S+)\\s+has\\s+been\\s+debited|Debit\\s+of)\\s+(?:KES|Ksh)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}\\s+\\d{1,2}:\\d{2}(?::\\d{2})?\\s*[AP]?M?)(?:\\s+at\\s+(?&lt;merchant&gt;[^.]+?))?\\.\\s*(?:Available\\s+balance\\s+is\\s+(?:KES|Ksh)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?.*?Ref:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)KCB:\\s+Debit\\s+of\\s+(?:KES|Ksh)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}\\s+\\d{1,2}:\\d{2}(?::\\d{2})?\\s*[AP]?M?)\\.\\s*Ref\\s*No:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)^(?&lt;receipt&gt;[A-Z0-9]+)\\s+Confirmed\\.\\s*(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+paid\\s+to\\s+(?&lt;merchant&gt;.+?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\.\\s*New\\s+M-PESA\\s+balance\\s+is\\s+(?:Ksh|KES)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.(?:\\s*Transaction\\s+cost,?\\s*(?:Ksh|KES)\\s*(?&lt;fee&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)^(?&lt;receipt&gt;[A-Z0-9]+)\\s+Confirmed\\.\\s*(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+sent\\s+to\\s+(?&lt;business&gt;.+?)\\s+for\\s+account\\s+(?&lt;account&gt;.+?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\.\\s*New\\s+M-PESA\\s+balance\\s+is\\s+(?:Ksh|KES)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.(?:\\s*Transaction\\s+cost,?\\s*(?:Ksh|KES)\\s*(?&lt;fee&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)^(?&lt;receipt&gt;[A-Z0-9]+)\\s+Confirmed\\.\\s*(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+sent\\s+to\\s+(?&lt;counterparty&gt;.+?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\.\\s*New\\s+M-PESA\\s+balance\\s+is\\s+(?:Ksh|KES)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.(?:\\s*Transaction\\s+cost,?\\s*(?:Ksh|KES)\\s*(?&lt;fee&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)^(?&lt;receipt&gt;[A-Z0-9]+)\\s+Confirmed\\.\\s*On\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\s*(?:Withdraw|Withdrawal\\s+of)\\s+(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+from\\s+(?&lt;agent&gt;.+?)\\.\\s*New\\s+M-PESA\\s+balance\\s+is\\s+(?:Ksh|KES)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\.(?:\\s*Transaction\\s+cost,?\\s*(?:Ksh|KES)\\s*(?&lt;fee&gt;[\\d,]+(?:\\.\\d{2})?)\\.)?"</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)^(?&lt;receipt&gt;[A-Z0-9]+)\\s+Confirmed\\.\\s*Reversal\\s+of\\s+transaction\\s+(?&lt;origReceipt&gt;[A-Z0-9]+)\\s+has\\s+been\\s+completed\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\s+and\\s+(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+has\\s+been\\s+credited\\s+to\\s+your\\s+M-PESA\\s+account\\.\\s*New\\s+M-PESA\\s+balance\\s+is\\s+(?:Ksh|KES)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\."</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)^(?&lt;receipt&gt;[A-Z0-9]+)\\s+Confirmed\\.\\s*You\\s+bought\\s+(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+of\\s+airtime(?:\\s+for\\s+(?&lt;recipient&gt;\\S+))?\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\.\\s*New\\s+M-PESA\\s+balance\\s+is\\s+(?:Ksh|KES)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\."</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)^(?&lt;receipt&gt;[A-Z0-9]+)\\s+Confirmed\\.\\s*You\\s+have\\s+received\\s+(?:Ksh|KES)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+from\\s+(?&lt;counterparty&gt;.+?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}(?:\\s+at|\\s+)\\s+\\d{1,2}:\\d{2}\\s+[AP]M)\\.\\s*New\\s+M-PESA\\s+balance\\s+is\\s+(?:Ksh|KES)\\s*(?&lt;balance&gt;[\\d,]+(?:\\.\\d{2})?)\\."</ID>
+    <ID>MaxLineLength:TemplateSmsParser.kt$TemplateSmsParser.Companion$"(?i)spent\\s+(?:KES|Ksh)\\s*(?&lt;amount&gt;[\\d,]+(?:\\.\\d{2})?)\\s+at\\s+(?&lt;merchant&gt;[^.]+?)\\s+on\\s+(?&lt;date&gt;\\d{1,2}/\\d{1,2}/\\d{4}\\s+\\d{1,2}:\\d{2}(?::\\d{2})?\\s*[AP]?M?)\\.\\s*Transaction\\s+Ref:\\s*(?&lt;receipt&gt;[A-Z0-9]+)"</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "Dear Customer, KES 15,000.00 has been credited to your A/C 1122334455 on 17/08/2024 at 11:20:00 by MOBILE MONEY TRANSFER. Bal KES 49,100.00. Ref: KCB667788."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "Dear Customer, KES 2,800.00 has been debited from your A/C 1122334455 on 16/08/2024 at 16:45:00 at JAVA HOUSE. Bal KES 34,100.00. Ref: KCB334455."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "Ksh1,500.00 sent to JANE DOE 0712345678 on 15/08/2024 02:30 PM. New M-PESA balance is Ksh5,230.00. Ref: QA12BC34DE"</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "Ksh2,000.00 received to JOHN DOE on 10/08/2024 10:15 AM. Balance Ksh12,000.00. Ref: RC98ZY76XW"</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "QA12BC34DE Confirmed. Ksh1,500.00 sent to JANE DOE 0712345678 on 15/08/2024 at 2:30 PM. New M-PESA balance is Ksh5,230.00. Transaction cost, Ksh15.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "QA99XX88WW Confirmed. KES 25,000.00 sent to PETER KAMAU +254722112233 on 01/09/2024 at 09:15 AM. New M-PESA balance is Ksh14,500.00. Transaction cost, Ksh105.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "QA99ZZ88YY Confirmed. You have received Ksh2,000.00 from JOHN DOE 0722000000 on 10/08/2024 at 10:15 AM. New M-PESA balance is Ksh12,000.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "RC98ZY76XW Confirmed. You have received KES 50,000.00 from MARY WANJIKU on 12/09/2024 at 4:50 PM. New M-PESA balance is Ksh65,200.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "Your A/C 1234567890123 has been credited KES 85,000.00 on 25/08/2024 09:30:00 by TECH KENYA LTD. Available balance is KES 130,200.00. Ref: EQ998877"</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$message = "Your A/C 1234567890123 has been debited KES 4,500.00 on 14/08/2024 14:10:05 at QUICKMART KILIMANI. Available balance is KES 45,200.00. Ref: EQ554433"</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$val message = "QA00KL11MN Confirmed. Reversal of transaction QA12BC34DE has been completed on 24/08/2024 at 3:00 PM and Ksh1,500.00 has been credited to your M-PESA account. New M-PESA balance is Ksh4,700.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$val message = "QA12BC34DE Confirmed. Ksh1,500.00 sent to JANE DOE 0712345678 on 15/08/2024 at 2:30 PM. New M-PESA balance is Ksh5,230.00. Transaction cost, Ksh15.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$val message = "QA33CD44EF Confirmed. Ksh3,500.00 sent to KPLC PREPAID for account 14223456789 on 18/08/2024 at 8:15 PM. New M-PESA balance is Ksh8,500.00. Transaction cost, Ksh23.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$val message = "QA55EF66GH Confirmed. Ksh4,200.00 paid to NAIVAS SUPERMARKET on 20/08/2024 at 6:45 PM. New M-PESA balance is Ksh4,300.00. Transaction cost, Ksh0.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$val message = "QA77GH88IJ Confirmed. On 22/08/2024 at 11:00 AM Withdraw Ksh1,000.00 from 123456 - AGENT KIMATHI ST. New M-PESA balance is Ksh3,300.00. Transaction cost, Ksh28.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$val message = "QA77KK88LL Confirmed. KES 120,500.00 sent to SUPERMARKET SUPPLIERS for account INV-990 on 20/08/2024 at 10:00 AM. New M-PESA balance is Ksh34,000.00. Transaction cost, Ksh105.00."</ID>
+    <ID>MaxLineLength:TemplateSmsParserTest.kt$TemplateSmsParserTest$val message = "QA88IJ99KL Confirmed. You bought Ksh100.00 of airtime for 0712345678 on 23/08/2024 at 1:10 PM. New M-PESA balance is Ksh3,200.00."</ID>
+    <ID>MaxLineLength:TransactionRepository.kt$HomeMonthSummary$val formattedNet: String get() = String.format(Locale.US, "%sKES %,d", if (netSavingsKsh &gt;= 0) "+" else "-", abs(netSavingsKsh))</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TransactionRepositoryTest$transactionDao.insert(Transaction(id = 1L, amount = -1000L, timestamp = now, description = "Paid to KPLC", counterparty = "KPLC Prepaid", receiptCode = "QA12BC34DE"))</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TransactionRepositoryTest$transactionDao.insert(Transaction(id = 1L, amount = -1500L, timestamp = now, description = "Fuel", counterparty = "Shell"))</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TransactionRepositoryTest$transactionDao.insert(Transaction(id = 2L, amount = -2500L, timestamp = now, description = "Naivas Supermarket", counterparty = "Naivas", receiptCode = "QB56CD78EF"))</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TransactionRepositoryTest$transactionDao.insert(Transaction(id = 2L, amount = 10000L, timestamp = now, description = "Salary", counterparty = "Acme Corp"))</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TransactionRepositoryTest$transactionDao.insert(Transaction(id = 3L, amount = 5000L, timestamp = now, description = "Received from John", counterparty = "John Kamau", receiptCode = "QC90EF12GH"))</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TransactionRepositoryTest$val txId = transactionDao.insert(Transaction(id = 1L, amount = -850L, timestamp = now, description = "Artcaffe Grand Cafe", counterparty = "Artcaffe"))</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TxRepoFakeCategoryDao$override suspend fun findByName(name: String): Category?</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TxRepoFakeTransactionDao$override fun getSpendingByCategoryFlow(start: OffsetDateTime, end: OffsetDateTime): Flow&lt;List&lt;CategorySpending&gt;&gt;</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TxRepoFakeTransactionDao$override suspend fun getSpendingByCategory(start: OffsetDateTime, end: OffsetDateTime): List&lt;CategorySpending&gt;</ID>
+    <ID>MaxLineLength:TransactionRepositoryTest.kt$TxRepoFakeTransactionDao$override suspend fun getUncategorisedTransactions(): List&lt;Transaction&gt;</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$Icon(Icons.AutoMirrored.Filled.CallSplit, contentDescription = "Split transaction ${item.displayTitle}")</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$Text("Part 2 Amount: ${String.format(Locale.US, "KES %,d", secondAmount)}", fontWeight = FontWeight.SemiBold)</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$Text("Split amounts must sum to ${item.formattedAmount}", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$onClick = { viewModel.dispatch(TransactionIntent.SelectTypeFilter(TransactionTypeFilter.EXPENSE)) }</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$onClick = { viewModel.dispatch(TransactionIntent.SelectTypeFilter(TransactionTypeFilter.INCOME)) }</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$trailingIcon = { Icon(Icons.Default.Edit, contentDescription = null, modifier = Modifier.size(14.dp)) }</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$val accessibilityDescription = "${item.displayTitle}, ${if (item.isExpense) "expense" else "income"} of ${item.formattedAmount}, receipt ${item.transaction.receiptCode ?: "none"}, category ${item.categoryName ?: "uncategorised"}"</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$val next = if (uiState.dateFilter == DateRangeFilter.LAST_7_DAYS) DateRangeFilter.ALL else DateRangeFilter.LAST_7_DAYS</ID>
+    <ID>MaxLineLength:TransactionsScreen.kt$val next = if (uiState.dateFilter == DateRangeFilter.THIS_MONTH) DateRangeFilter.ALL else DateRangeFilter.THIS_MONTH</ID>
+    <ID>NestedBlockDepth:BudgetRepository.kt$BudgetRepositoryImpl$override suspend fun checkBudgetsAndNotify( targetMonth: String?, zoneId: ZoneId ): BudgetCheckResult</ID>
+    <ID>NestedBlockDepth:SmsIngestion.kt$SmsIngestionRepository$suspend fun backfillAll(context: Context, batchSize: Int = 50): Int</ID>
+    <ID>NestedBlockDepth:TemplateSmsParser.kt$TemplateSmsParser$override fun parse(sender: String, body: String): SmsParseResult</ID>
+    <ID>ReturnCount:CategorisationRepository.kt$CategorisationRepository$private suspend fun resolveMerchantRule(txn: Transaction): Long?</ID>
+    <ID>ReturnCount:CategorisationRepository.kt$CategorisationRepository$private suspend fun resolvePaybillRule(txn: Transaction): Long?</ID>
+    <ID>ReturnCount:CategorisationRepository.kt$CategorisationRepository$suspend fun resolveCategoryForTransaction( txn: Transaction, userRules: List&lt;CategorisationRule&gt;? = null ): Long?</ID>
+    <ID>ReturnCount:NotificationHelper.kt$NotificationHelper$fun showBudgetAlert( context: Context, budgetId: Long, categoryName: String, spentKsh: Long, limitKsh: Long, month: String, isExhausted: Boolean ): Boolean</ID>
+    <ID>ReturnCount:SmsIngestion.kt$SmsIngestionWorker$override suspend fun doWork(): Result</ID>
+    <ID>ReturnCount:SmsIngestion.kt$SmsReceiver$override fun onReceive(context: Context?, intent: Intent?)</ID>
+    <ID>ReturnCount:TemplateSmsParser.kt$TemplateSmsParser$override fun parse(sender: String, body: String): SmsParseResult</ID>
+    <ID>ReturnCount:TemplateSmsParser.kt$TemplateSmsParser.Companion$fun parseNairobiDateTime(raw: String): OffsetDateTime</ID>
+    <ID>ReturnCount:TemplateSmsParser.kt$TemplateSmsParser.Companion$fun parseOptionalAmount(raw: String?): Long?</ID>
+    <ID>TooGenericExceptionCaught:BudgetViewModel.kt$BudgetViewModel$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SettingsViewModel.kt$SettingsViewModel$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:TransactionViewModel.kt$TransactionViewModel$e: Exception</ID>
+    <ID>TooManyFunctions:BudgetViewModel.kt$BudgetViewModel : ViewModel</ID>
+    <ID>TooManyFunctions:DatabaseModule.kt$DatabaseModule</ID>
+    <ID>TooManyFunctions:TemplateSmsParser.kt$TemplateSmsParser$Companion</ID>
+    <ID>TooManyFunctions:TransactionDao.kt$BudgetDao</ID>
+    <ID>TooManyFunctions:TransactionDao.kt$TransactionDao</ID>
+    <ID>UnusedParameter:ReportsScreen.kt$navController: NavController</ID>
+    <ID>UnusedParameter:TransactionsScreen.kt$categories: List&lt;com.example.smsexpensertracker.data.Category&gt;</ID>
+    <ID>UnusedParameter:TransactionsScreen.kt$navController: NavHostController</ID>
+    <ID>UnusedPrivateProperty:SettingsViewModel.kt$SettingsViewModel$private val categoryDao: CategoryDao</ID>
+    <ID>UnusedPrivateProperty:TransactionRepositoryTest.kt$TransactionRepositoryTest$private val kenyaZone = ZoneId.of("Africa/Nairobi")</ID>
+    <ID>UseCheckOrError:AccessibilityLocalizationTest.kt$AccessibilityLocalizationTest$throw IllegalStateException("Could not find $relativePath in ${File(".").absolutePath}")</ID>
+    <ID>UseCheckOrError:PrivacyManifestTest.kt$PrivacyManifestTest$throw IllegalStateException("Could not find file at $relativePath in ${File(".").absolutePath}")</ID>
+    <ID>WildcardImport:BudgetEditScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:BudgetEditScreen.kt$import androidx.compose.material3.*</ID>
+    <ID>WildcardImport:BudgetEditScreen.kt$import androidx.compose.runtime.*</ID>
+    <ID>WildcardImport:ManualImportScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:RuleEditScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:RuleEditScreen.kt$import androidx.compose.material3.*</ID>
+    <ID>WildcardImport:RuleEditScreen.kt$import androidx.compose.runtime.*</ID>
+    <ID>WildcardImport:RuleListScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:RuleListScreen.kt$import androidx.compose.material3.*</ID>
+    <ID>WildcardImport:TransactionsScreen.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:TransactionsScreen.kt$import androidx.compose.material3.*</ID>
+    <ID>WildcardImport:TransactionsScreen.kt$import androidx.compose.runtime.*</ID>
+  </CurrentIssues>
+</SmellBaseline>
