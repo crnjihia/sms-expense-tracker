@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.detekt)
     alias(libs.plugins.ktlint)
+    id("maven-publish")
 }
 
 android {
@@ -54,6 +55,12 @@ android {
         unitTests.isIncludeAndroidResources = true
         unitTests.all {
             it.useJUnitPlatform()
+        }
+    }
+
+    publishing {
+        singleVariant("release") {
+            publishApk()
         }
     }
 }
@@ -130,4 +137,27 @@ detekt {
 ktlint {
     android.set(true)
     ignoreFailures.set(true)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.crnjihia"
+                artifactId = "sms-expense-tracker"
+                version = android.defaultConfig.versionName ?: "0.1.0"
+            }
+        }
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/crnjihia/sms-expense-tracker")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR") ?: ""
+                    password = System.getenv("GITHUB_TOKEN") ?: ""
+                }
+            }
+        }
+    }
 }

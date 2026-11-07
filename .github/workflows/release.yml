@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 jobs:
   release:
@@ -38,6 +39,12 @@ jobs:
 
       - name: Build Debug & Release APKs
         run: ./gradlew assembleDebug assembleRelease --no-daemon
+
+      - name: Publish Package to GitHub Packages
+        run: ./gradlew publishReleasePublicationToGitHubPackagesRepository --no-daemon
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release & Upload APKs
         uses: softprops/action-gh-release@v2

@@ -3,9 +3,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ main, phase3-budget-categorisation ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, phase3-budget-categorisation ]
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
