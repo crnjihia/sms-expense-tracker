@@ -21,7 +21,7 @@ Thank you for your interest in contributing to **SMS Expense Tracker**.
    ```
 
 ## Commit Conventions
-We enforce [Conventional Commits](https://www.conventionalcommits.org/):
+I enforce [Conventional Commits](https://www.conventionalcommits.org/):
 - `feat(scope): add new capability`
 - `fix(scope): resolve issue`
 - `test(scope): add or update test coverage`

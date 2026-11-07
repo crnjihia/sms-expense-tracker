@@ -21,7 +21,7 @@
 |:---:|:---:|:---:|
 | <img src="docs/screenshots/Reports.png" width="260" alt="Reports Screen" /> | <img src="docs/screenshots/Settings1.png" width="260" alt="Settings Screen 1" /> | <img src="docs/screenshots/Settings2.png" width="260" alt="Settings Screen 2" /> |
 
-> *Note: Settings Screen 2 represents the scrollable continuation of Settings Screen 1, displaying language preferences and data reset options.*
+> *Note: Settings Screen 2 represents the scrollable continuation of Settings Screen 1, displaying system permissions and data management options.*
 
 ---
 
@@ -164,3 +164,4 @@ The assembled APK will be generated at:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

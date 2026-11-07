@@ -37,3 +37,4 @@ KES 3,100.00 debited from A/C 0987654321 on 22/08/2024 14:05 for JAVA HOUSE NAIR
 
 --- SENDER: KCB ---
 KES 15,000.00 credited to A/C 0987654321 on 05/08/2024 11:30. New balance is KES 47,400.00. Ref KCB998811.
+

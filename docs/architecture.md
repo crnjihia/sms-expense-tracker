@@ -179,3 +179,4 @@ flowchart TD
   - `Screen.RuleList` & `Screen.RuleEdit`
   - `Screen.BudgetEdit`
 - **Charts:** Bespoke hardware-accelerated Compose `Canvas` implementations (monthly trend bar chart and category breakdown donut chart) with TalkBack accessibility labels and contrast guarantees ($\ge 4.5:1$).
+
