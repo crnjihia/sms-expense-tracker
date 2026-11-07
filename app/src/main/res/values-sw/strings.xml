@@ -1,15 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- path: app/src/main/res/values-sw/strings.xml -->
 <resources>
     <string name="app_name">Kipanga cha Matumizi ya SMS</string>
     <string name="welcome_message">Karibu kwenye Kipanga cha Matumizi ya SMS</string>
     <string name="request_permission">Omba Ruhusa ya SMS</string>
     <string name="grant_permission">Ruhusu SMS</string>
     <string name="permission_rationale">Programu inahitaji ruhusa ya SMS ili kusoma ujumbe wa M‑Pesa na benki.</string>
+    <string name="permission_title">Ufikiaji wa SMS &amp; Faragha</string>
+    <string name="permission_subtitle" formatted="false">Asilimia 100 Kwenye Simu • Hakuna Mtandao</string>
+    <string name="permission_description">Kipanga cha Matumizi ya SMS kinahitaji ruhusa ya SMS ili tu kuchambua arifa za miamala ya M-Pesa, Equity, na KCB moja kwa moja kwenye simu yako. Hakuna taarifa za kifedha zinazotoka kwenye simu yako kamwe.</string>
+    <string name="permission_feature_1">Kurekodi kiotomatiki miamala ya M-Pesa (kutuma, kupokea, paybill, till) &amp; benki</string>
+    <string name="permission_feature_2">Upangaji wa kategoria kwa akili na ufuatiliaji wa bajeti ya kila mwezi</string>
+    <string name="permission_feature_3">Faragha thabiti: hakuna ruhusa ya mtandao, hakuna hifadhi ya wingu, hakuna ufuatiliaji</string>
+    <string name="permission_continue_manual">Endelea na Uingizaji wa Mikono</string>
+    <string name="permission_status_granted">Ruhusa za SMS zimetolewa. Uchakataji unaendelea.</string>
+    <string name="permission_status_denied">Ruhusa imekataliwa. Unaweza kuingiza ujumbe kwa mikono wakati wowote.</string>
+    <string name="backfill_sms">Sawazisha SMS za Kikasha</string>
+    <string name="manual_import_button">Uingizaji wa Mikono</string>
     <string name="manual_import_title">Uingizaji wa Mikono</string>
     <string name="paste_messages_label">Bandika ujumbe wa SMS (mtumaji|maudhui kwa kila mstari)</string>
     <string name="paste_placeholder">+254711234567|Ksh1,000.00 alitumwa kwa John tarehe 01/08/2024 12:00 PM</string>
     <string name="import_button">Ingiza</string>
     <string name="import_summary">%1$d imeingizwa, %2$d haikuweza kutambuliwa</string>
     <string name="done_button">Sawa</string>
-    <string name="manual_import_button">Uingizaji wa Mikono</string>
+    <string name="manage_rules">Dhibiti Kanuni</string>
+    <string name="manage_budgets">Dhibiti Bajeti</string>
+    <string name="check_budgets">Kagua Bajeti</string>
+
+    <!-- Budget Notification Channel and Alerts in Swahili -->
+    <string name="budget_channel_name">Tahadhari za Bajeti</string>
+    <string name="budget_channel_desc" formatted="false">Taarifa wakati matumizi ya kategoria yanafikia 80% au 100% ya kikomo cha mwezi</string>
+    <string name="budget_alert_warning_title">⚠️ Tahadhari ya Bajeti: %1$s</string>
+    <string name="budget_alert_warning_body">Umetumia %1$d%% (%2$s ya %3$s) ya bajeti yako ya %4$s ya %5$s.</string>
+    <string name="budget_alert_exhausted_title">🚨 Bajeti Imekwisha: %1$s</string>
+    <string name="budget_alert_exhausted_body">Umetimiza au kuzidisha bajeti yako ya %1$s (%2$s ya %3$s) ya %4$s.</string>
+
+    <!-- Reports Screen in Swahili -->
+    <string name="reports_title">Ripoti za Matumizi</string>
+    <string name="total_spending">Jumla ya Matumizi</string>
+    <string name="monthly_average">Wastani wa Kila Mwezi</string>
+    <string name="spending_trend">Mwelekeo wa Matumizi ya Kila Mwezi</string>
+    <string name="spending_by_category">Matumizi kwa Kategoria</string>
+    <string name="no_expenses_recorded">Hakuna matumizi yaliyorekodiwa katika kipindi hiki</string>
+    <string name="category_details">Maelezo ya Kategoria</string>
+
+    <!-- Settings Screen in Swahili -->
+    <string name="settings_title">Mipangilio na Faragha</string>
+    <string name="privacy_banner_title" formatted="false">Faragha ya Asilimia 100 Kwenye Simu</string>
+    <string name="privacy_banner_desc">Hakuna ruhusa ya mtandao. Hakuna uchambuzi au seva za wingu. Data yote ya M-Pesa inasalia kwenye simu yako tu.</string>
+    <string name="biometric_title">Kufunga kwa Alama ya Kidole / PIN</string>
+    <string name="export_csv_button">Pakua Miamala Yote (CSV)</string>
+    <string name="wipe_data_button">Futa Data Yote</string>
+    <string name="wipe_confirm_title">Ungependa Kufuta Data Yote ya Kwenye Simu?</string>
+    <string name="wipe_confirm_body">Hii itafuta kabisa miamala yote, bajeti za kila mwezi, kanuni maalum za kategoria, na viashiria vya SMS kutoka kwenye simu yako. Hatua hii haiwezi kubadilishwa.</string>
 </resources>
