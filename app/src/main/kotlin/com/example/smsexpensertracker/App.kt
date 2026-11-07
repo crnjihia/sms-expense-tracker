@@ -1,12 +1,16 @@
+// path: app/src/main/kotlin/com/example/smsexpensertracker/App.kt
 package com.example.smsexpensertracker
 
 import android.app.Application
+import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import androidx.work.WorkerFactory
-import dagger.hilt.android.HiltAndroidApp
-import com.example.smsexpensertracker.NotificationHelper
-
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.example.smsexpensertracker.ingestion.BudgetCheckWorker
+import dagger.hilt.android.HiltAndroidApp
+import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 /**
  * Application class that enables Hilt DI and provides a WorkManager configuration.
@@ -14,24 +18,24 @@ import androidx.work.WorkManager
 @HiltAndroidApp
 class App : Application(), Configuration.Provider {
 
-    override fun onCreate() {
-        super.onCreate()
-        // Initialise the budget alert notification channel.
-        NotificationHelper.createChannel(this)
-        // Schedule periodic budget checks (every 12 hours).
-        val workRequest = androidx.work.PeriodicWorkRequestBuilder<BudgetCheckWorker>(12, java.util.concurrent.TimeUnit.HOURS)
-            .build()
-        androidx.work.WorkManager.getInstance(this)
-            .enqueueUniquePeriodicWork(
-                "budget_check_periodic",
-                androidx.work.ExistingPeriodicWorkPolicy.KEEP,
-                workRequest
-            )
-    }
+    @Inject
+    lateinit var workerFactory: HiltWorkerFactory
 
-
-    override fun getWorkManagerConfiguration(): Configuration =
-        Configuration.Builder()
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
             .setWorkerFactory(workerFactory)
             .build()
+
+    override fun onCreate() {
+        super.onCreate()
+        NotificationHelper.createChannel(this)
+
+        val workRequest = PeriodicWorkRequestBuilder<BudgetCheckWorker>(12, TimeUnit.HOURS)
+            .build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "budget_check_periodic",
+            ExistingPeriodicWorkPolicy.KEEP,
+            workRequest
+        )
+    }
 }

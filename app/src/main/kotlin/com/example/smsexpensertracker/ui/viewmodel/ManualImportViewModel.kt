@@ -2,9 +2,10 @@ package com.example.smsexpensertracker.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.smsexpensertracker.parser.SmsParser
-import com.example.smsexpensertracker.parser.SmsParseResult
+import com.example.smsexpensertracker.data.CategorisationRepository
 import com.example.smsexpensertracker.ingestion.SmsIngestionRepository
+import com.example.smsexpensertracker.parser.SmsParseResult
+import com.example.smsexpensertracker.parser.SmsParser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +18,8 @@ data class ImportResult(val inserted: Int, val unparsed: Int)
 @HiltViewModel
 class ManualImportViewModel @Inject constructor(
     private val parser: SmsParser,
-    private val repository: SmsIngestionRepository
+    private val repository: SmsIngestionRepository,
+    private val categorisationRepository: CategorisationRepository
 ) : ViewModel() {
 
     private val _importResult = MutableStateFlow<ImportResult?>(null)
@@ -48,6 +50,7 @@ class ManualImportViewModel @Inject constructor(
                     SmsParseResult.Unparsed -> unparsed++
                 }
             }
+            categorisationRepository.applyRules()
             _importResult.value = ImportResult(inserted, unparsed)
         }
     }

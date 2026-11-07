@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- path: app/src/main/res/values/strings.xml -->
 <resources>
     <string name="app_name">SMS Expense Tracker</string>
     <string name="welcome_message">Welcome to SMS Expense Tracker</string>
     <string name="request_permission">Request SMS Permission</string>
-    <string name="grant_permission">Grant SMS Permission</string>
-    <string name="permission_rationale">The app needs SMS permission to read M‑Pesa and bank messages.</string>
+    <string name="grant_permission">Grant SMS Permissions</string>
+    <string name="permission_rationale">The app needs SMS permissions to read M‑Pesa and bank messages on-device.</string>
+    <string name="permission_title">SMS Access &amp; Privacy</string>
+    <string name="permission_subtitle" formatted="false">100% On-Device • Zero Network Access</string>
+    <string name="permission_description">SMS Expense Tracker requires SMS permissions solely to analyze incoming and historical M-Pesa, Equity, and KCB transaction notifications directly on your phone. No financial data ever leaves your device.</string>
+    <string name="permission_feature_1">Automated M-Pesa (sent, received, paybill, till) &amp; bank capture</string>
+    <string name="permission_feature_2">Intelligent category tagging and monthly budget tracking</string>
+    <string name="permission_feature_3">Strict privacy: no internet permission, no cloud storage, no analytics</string>
+    <string name="permission_continue_manual">Continue with Manual Import</string>
+    <string name="permission_status_granted">SMS permissions granted. Ingestion active.</string>
+    <string name="permission_status_denied">Permission denied. You can import messages manually anytime.</string>
+    <string name="backfill_sms">Sync Inbox SMS</string>
+    <string name="manual_import_button">Manual SMS Import</string>
     <string name="manual_import_title">Manual SMS Import</string>
     <string name="paste_messages_label">Paste SMS messages (sender|body per line)</string>
     <string name="paste_placeholder">+254711234567|Ksh1,000.00 sent to John on 01/08/2024 12:00 PM</string>
@@ -15,4 +27,30 @@
     <string name="manage_budgets">Manage Budgets</string>
     <string name="check_budgets">Check Budgets</string>
 
+    <!-- Budget Notification Channel and Alerts -->
+    <string name="budget_channel_name">Budget Alerts</string>
+    <string name="budget_channel_desc" formatted="false">Alerts when category spending reaches 80% or 100% of monthly limits</string>
+    <string name="budget_alert_warning_title">⚠️ Budget Alert: %1$s</string>
+    <string name="budget_alert_warning_body">You have used %1$d%% (%2$s of %3$s) of your %4$s budget for %5$s.</string>
+    <string name="budget_alert_exhausted_title">🚨 Budget Exhausted: %1$s</string>
+    <string name="budget_alert_exhausted_body">You have reached or exceeded your %1$s budget (%2$s of %3$s) for %4$s.</string>
+
+    <!-- Reports Screen -->
+    <string name="reports_title">Spending Reports</string>
+    <string name="total_spending">Total Spending</string>
+    <string name="monthly_average">Monthly Average</string>
+    <string name="spending_trend">Monthly Spending Trend</string>
+    <string name="spending_by_category">Spending by Category</string>
+    <string name="no_expenses_recorded">No expenses recorded in this period</string>
+    <string name="category_details">Category Details</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">Settings &amp; Privacy</string>
+    <string name="privacy_banner_title" formatted="false">100% On-Device Privacy</string>
+    <string name="privacy_banner_desc">Zero network permission. No analytics, tracking, or cloud servers. All M-Pesa data remains exclusively on your phone.</string>
+    <string name="biometric_title">Biometric / PIN Lock</string>
+    <string name="export_csv_button">Export All Transactions (CSV)</string>
+    <string name="wipe_data_button">Wipe All Data</string>
+    <string name="wipe_confirm_title">Wipe All Local Data?</string>
+    <string name="wipe_confirm_body">This will permanently delete all stored transactions, monthly budgets, custom categorisation rules, and SMS sync pointers from your device. This operation cannot be undone.</string>
 </resources>

@@ -13,6 +13,7 @@ import com.example.smsexpensertracker.data.CategorisationRule
 /**
  * Screen for creating a new rule or editing an existing one.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RuleEditScreen(navController: NavHostController, ruleId: Long?) {
     val viewModel: RuleViewModel = hiltViewModel()

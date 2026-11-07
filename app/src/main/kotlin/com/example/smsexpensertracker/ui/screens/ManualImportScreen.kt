@@ -4,8 +4,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -47,7 +51,8 @@ fun ManualImportScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(12.dp))
         Button(
             onClick = { viewModel.importMessages(inputText) },
-            enabled = inputText.isNotBlank()
+            enabled = inputText.isNotBlank(),
+            modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = stringResource(R.string.import_button))
         }
