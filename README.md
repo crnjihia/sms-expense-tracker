@@ -9,6 +9,9 @@
 
 **SMS Expense Tracker** is a native, privacy-first Android application designed specifically for the Kenyan financial ecosystem. It parses transaction SMS messages from **M-Pesa**, **Equity Bank**, and **KCB Bank** entirely on-device to produce categorized spending breakdowns, monthly budgets, interactive visual reports, and data exports without sending a single byte over the network.
 
+**User guide:** [Install, run, and use the app](https://crnjihia.github.io/sms-expense-tracker/).
+To publish the guide, select **Settings → Pages → Build and deployment → GitHub Actions** in the repository; the Pages workflow deploys updates pushed to `main`.
+
 ---
 
 ## 📸 Screenshots
@@ -164,4 +167,3 @@ The assembled APK will be generated at:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
